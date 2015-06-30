@@ -8,12 +8,27 @@ uplearnApp.config([
 			.state('home', {
 				url: '/home',
 				templateUrl: 'home/_home.html',
-				controller: 'MainCtrl'
+				controller: 'MainCtrl',
+				resolve: {
+					postPromise: ['links',function(links){
+						return links.getAll();
+					}]
+				}
 			})
 			.state('links',{
 				url: '/links/{id}',
 				templateUrl: 'links/_links.html',
-				controller: 'PagesCtrl'
+				controller: 'LinksCtrl',
+				resolve: {
+					linkPromise: ['$stateParams','links',function($stateParams,links){
+						return links.get($stateParams.id);
+						// debugger;
+					}]
+				}
+				// 	postPromise ['link',function(link){
+				// 		return links.
+				// 	}]
+				// }
 			})
 			.state('addlink',{
 				url: '/addlink',

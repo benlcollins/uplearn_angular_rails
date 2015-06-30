@@ -12,10 +12,10 @@
 					
 						<h4>{{ link.title }}</h4>
 						<span ng-show="link.comments.length > 1">
-							<a href="/#/links/{{$index}}">{{ link.comments.length }} comments</a>
+							<a href="/#/links/{{ link.id }}">{{ link.comments.length }} comments</a>
 						</span>
 						<span ng-show="link.comments.length == 1">
-							<a href="/#/links/{{$index}}">{{ link.comments.length }} comment</a>
+							<a href="/#/links/{{ link.id }}">{{ link.comments.length }} comment</a>
 						</span>
 						<span ng-show="link.comments.length == 0">
 							No comments
@@ -36,7 +36,7 @@
 						
 						<!-- section for link details -->
 						<div ng-show="hiddenDiv">
-								<div class="jumbotron" ng-click="showLink($index)">
+								<div class="jumbotron" ng-click="showLink(link)">
 									<!-- <a href="#/links/{{$index}}">details</a> -->
 									<h2><span class="glyphicon glyphicon-bookmark"></span> {{ link.title }}</h2>
 									<p>{{ link.body }}</p>

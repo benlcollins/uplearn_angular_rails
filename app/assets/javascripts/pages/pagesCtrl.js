@@ -4,15 +4,16 @@ uplearnApp.controller('PagesCtrl',[
 	'$stateParams',
 	'$http',
 	function($scope,links,$stateParams,$http){
-		$scope.link = links.links[$stateParams.id];
+		window.myscope = $scope;
+		// $scope.link = linkPromise.data;
 
-		$scope.addComment = function(){
-			if ($scope.body === "" || !$scope.body){ return; }
-			$scope.link.comments.push({
-				author: "Ben Collins",
-				body: $scope.body
-			});
-		};
+		// $scope.addComment = function(){
+		// 	if ($scope.body === "" || !$scope.body){ return; }
+		// 	$scope.link.comments.push({
+		// 		author: "Ben Collins",
+		// 		body: $scope.body
+		// 	});
+		// };
 
 		$scope.getJobs = function(){
 			if($scope.username === "" || !$scope.username) { $scope.username = "GitHub"; };

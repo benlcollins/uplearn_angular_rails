@@ -1,7 +1,9 @@
 class AngularController < ApplicationController
 
-  # def angular
-  # 	render 'layouts/application'
-  # end
+	# respond_to :json
+
+  def angular
+  	render 'layouts/application'
+  end
 
 end

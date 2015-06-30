@@ -1,23 +1,23 @@
 <div class="container">
 
 	<div class="row">
-		<h3>{{ link.title }}</h3>
-		<p>{{ link.body }}</p>
+		<h3>{{ link.data.title }}</h3>
+		<p>{{ link.data.body }}</p>
 		<p>
-			<a href="{{ link.url }}" target="_blank">
+			<a href="{{ link.data.url }}" target="_blank">
 				<span class="glyphicon glyphicon-link"></span>
-				{{ link.url }}
+				{{ link.data.url }}
 			</a>
 		</p>
 	</div>
 
 	<div class="row">
-			<div ng-repeat="comment in link.comments">
+			<div ng-repeat="comment in link.data.comments">
 				<ul class="list-group">
 					<li class="list-group-item">
 						<!-- <blockquote> -->
 							<p>{{ comment.body }}</p>
-							<small>by {{ comment.author }}</small>
+							<small>by Test Bot</small>
 							<!-- <footer>by {{ comment.author }}</footer> -->
 						<!-- </blockquote> -->
 						<!-- <div class="media-left"> -->
