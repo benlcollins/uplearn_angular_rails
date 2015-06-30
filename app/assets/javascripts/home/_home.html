@@ -1,0 +1,60 @@
+<div class="container">
+	<div class="row">
+		<h3>UpLearn is the best place to find and share online learning resources</h3>
+		<br>
+		
+		<div ng-repeat="link in links | orderBy: '-upvotes'">
+
+			<!-- content inside ng-repeat loop -->
+			<span ng-click="hiddenDiv = !hiddenDiv" style="cursor: pointer">
+				<div class="panel panel-default">
+					<div class="panel-body">
+					
+						<h4>{{ link.title }}</h4>
+						<span ng-show="link.comments.length > 1">
+							<a href="/#/links/{{$index}}">{{ link.comments.length }} comments</a>
+						</span>
+						<span ng-show="link.comments.length == 1">
+							<a href="/#/links/{{$index}}">{{ link.comments.length }} comment</a>
+						</span>
+						<span ng-show="link.comments.length == 0">
+							No comments
+						</span>
+						<br>
+						<a href="{{ link.url }}" target="_blank">
+							<span class="glyphicon glyphicon-link"></span>
+							{{ link.url }}
+						</a>
+
+						<!-- Upvote button -->
+						<div class="pull-right">
+							<button ng-click="upvoteLink(link)" class="btn btn-primary" type="button">
+								<span class="glyphicon glyphicon-thumbs-up"></span>
+								<span class="badge">  {{ link.upvotes }}</span>
+							</button>
+						</div>
+						
+						<!-- section for link details -->
+						<div ng-show="hiddenDiv">
+								<div class="jumbotron" ng-click="showLink($index)">
+									<!-- <a href="#/links/{{$index}}">details</a> -->
+									<h2><span class="glyphicon glyphicon-bookmark"></span> {{ link.title }}</h2>
+									<p>{{ link.body }}</p>
+									<br>
+									<p>
+										<a href="{{ detailedlink.url }}" target="_blank">
+											<span class="glyphicon glyphicon-link"></span>
+											{{ link.url }}
+										</a>
+									</p>
+								</div>
+							</div>
+
+					</div>
+				</div>
+			</span>
+		
+		</div>
+	
+	</div>
+</div>
