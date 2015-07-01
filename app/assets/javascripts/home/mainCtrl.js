@@ -11,18 +11,14 @@ uplearnApp.controller('MainCtrl',[
 
 		$scope.addLink = function() {
 			if ($scope.title==="" || !$scope.title || $scope.url==="" || !$scope.url) { return; }
-			// $scope.links.push({
-			// 		title: $scope.title,
-			// 		body: $scope.body,
-			// 		url: $scope.url,
-			// 		upvotes: 0 
-			// 	});
+
 			links.create({
 				title: $scope.title,
 				body: $scope.body,
 				url: $scope.url,
 				upvotes: 0 
 			});
+			
 			$scope.title = "Title";
 			$scope.body = "Body";
 			$scope.url = "Url";
@@ -35,14 +31,11 @@ uplearnApp.controller('MainCtrl',[
 		};
 
 		$scope.hiddenDiv = false;
-		
-		// $scope.link_id = $stateParams.linkId;
 
 		$scope.showLink = function(link){
 			event.stopPropagation();
 			$location.url("/links/" + link.id);
 		};
-
 
 	}
 ]);

@@ -1,15 +1,16 @@
 class LinksController < ApplicationController
 
+	before_filter :authenticate_user!, only: [:create,:upvote]
+
 	def index
 		respond_with Link.all
 	end
 	
 	def create
-		link = Link.create(post_params)
+		link = Link.create(post_params.merge(user_id: current_user.id))
 		link.upvotes = 0
 		link.save
 		respond_with link
-		# respond_with Link.create(post_params)
 	end
 
 	def show

@@ -1,4 +1,4 @@
-var uplearnApp = angular.module('uplearn',['ui.router','templates']);
+var uplearnApp = angular.module('uplearn',['ui.router','templates','Devise']);
 
 uplearnApp.config([
 	'$stateProvider',
@@ -25,10 +25,6 @@ uplearnApp.config([
 						// debugger;
 					}]
 				}
-				// 	postPromise ['link',function(link){
-				// 		return links.
-				// 	}]
-				// }
 			})
 			.state('addlink',{
 				url: '/addlink',
@@ -49,6 +45,26 @@ uplearnApp.config([
 				url: '/jobs',
 				templateUrl: 'pages/_jobs.html',
 				controller: 'PagesCtrl'
+			})
+			.state('login',{
+				url: '/login',
+				templateUrl: 'auth/_login.html',
+				controller: 'AuthCtrl',
+				onEnter: ['$state','Auth',function($state,Auth){
+					Auth.currentUser().then(function(){
+						$state.go('home');
+					})
+				}]
+			})
+			.state('register',{
+				url: '/register',
+				templateUrl: 'auth/_register.html',
+				controller: 'AuthCtrl',
+				onEnter: ['$state','Auth',function($state,Auth){
+					Auth.currentUser().then(function(){
+						$state.go('home');
+					})
+				}]
 			});
 
 		$urlRouterProvider.otherwise('home');

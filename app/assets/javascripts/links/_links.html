@@ -15,17 +15,8 @@
 			<div ng-repeat="comment in link.data.comments">
 				<ul class="list-group">
 					<li class="list-group-item">
-						<!-- <blockquote> -->
 							<p>{{ comment.body }}</p>
-							<small>by Test Bot</small>
-							<!-- <footer>by {{ comment.author }}</footer> -->
-						<!-- </blockquote> -->
-						<!-- <div class="media-left"> -->
-							<!-- <p class="lead">{{ comment.body }}</p>
-							<span style="margin-left: 20px;">
-								<br> by {{ comment.author }}
-							</span> -->
-						<!-- </div> -->
+							<small>by {{ comment.user.username }}</small>
 					</li>
 				</ul>
 			</div>

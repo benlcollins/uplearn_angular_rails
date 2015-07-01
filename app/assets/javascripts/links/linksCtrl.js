@@ -12,16 +12,12 @@ uplearnApp.controller('LinksCtrl',[
 			if ($scope.body === "" || !$scope.body){ return; }
 			// debugger;
 			links.addComment($scope.link.data.id,{
-				author: "Ben Collins",
 				body: $scope.body
 			}).success(function(comment){
 				// debugger;
 				$scope.link.data.comments.push(comment);
-			})
-			// $scope.link.comments.push({
-			// 	author: "Ben Collins",
-			// 	body: $scope.body
-			// });
+			});
+			$scope.body = "Add your comment";
 		};
 	}
 ])

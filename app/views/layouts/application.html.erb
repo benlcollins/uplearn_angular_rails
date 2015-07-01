@@ -30,17 +30,25 @@
 						<a href="#jobs">Jobs</a>
 					</li>
 				</ul>
-				<ul class="nav navbar-nav pull-right">
-					<li>
-						<a href="#">Login</a>
-					</li>
-					<li>
-						<a href="#">Register</a>
-					</li>
-					<li>
-						<a href="#addlink">Submit Link</a>
-					</li>
-				</ul>
+				<div ng-controller="NavCtrl">
+					<ul class="nav navbar-nav pull-right">
+						<li ng-hide="signedIn()">
+							<a href="#/login">Log in</a>
+						</li>
+						<li ng-hide="signedIn()">
+							<a href="#/register">Register</a>
+						</li>
+						<li ng-show="signedIn()">
+							<a href="#home">{{ user.username }}</a>
+						</li>
+						<li ng-show="signedIn()">
+							<a ng-click="logout()" style="cursor: pointer;">Log out</a>
+						</li>
+						<li>
+							<a href="#addlink">Submit Link</a>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</nav>
 	</div>

@@ -19,3 +19,5 @@ gem 'sprockets', '2.12.3'
 gem 'responders', '~> 2.0'
 gem 'angular_rails_csrf'
 gem 'pry-rails'
+
+gem 'devise'
