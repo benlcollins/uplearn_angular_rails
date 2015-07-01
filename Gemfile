@@ -21,3 +21,4 @@ gem 'angular_rails_csrf'
 gem 'pry-rails'
 
 gem 'devise'
+gem 'rails_12factor', group: :production
