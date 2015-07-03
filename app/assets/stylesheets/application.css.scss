@@ -1,0 +1,13 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body { 
+ 	padding-top: 50px; 
+}
+.jumbotron {
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+.list-group-item {
+	border: 0px;
+}
