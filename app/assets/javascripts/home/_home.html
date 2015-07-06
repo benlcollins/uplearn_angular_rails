@@ -22,14 +22,14 @@
 						</span>
 						<br>
 						<a href="{{ link.url }}" target="_blank">
-							<span class="glyphicon glyphicon-link"></span>
+							<!-- <span class="glyphicon glyphicon-link"></span> -->
 							{{ link.url }}
 						</a>
 
 						<!-- Upvote button -->
 						<div class="pull-right">
 							<button ng-click="upvoteLink(link)" class="btn btn-primary" type="button">
-								<span class="glyphicon glyphicon-thumbs-up"></span>
+								<!-- <span class="glyphicon glyphicon-thumbs-up"></span> -->
 								<span class="badge">  {{ link.upvotes }}</span>
 							</button>
 						</div>
@@ -38,13 +38,13 @@
 						<div ng-show="hiddenDiv">
 								<div class="jumbotron" ng-click="showLink(link)">
 									<!-- <a href="#/links/{{$index}}">details</a> -->
-									<h2><span class="glyphicon glyphicon-bookmark"></span> {{ link.title }}</h2>
+									<h2><!-- <span class="glyphicon glyphicon-bookmark"></span> --> {{ link.title }}</h2>
 									<p>{{ link.body }}</p>
 									<p>Shared by <a ng-ref="#/users/{{ link.user.username }}">{{ link.user.username }}</p>
 									<br>
 									<p>
 										<a href="{{ detailedlink.url }}" target="_blank">
-											<span class="glyphicon glyphicon-link"></span>
+											<!-- <span class="glyphicon glyphicon-link"></span> -->
 											{{ link.url }}
 										</a>
 									</p>
