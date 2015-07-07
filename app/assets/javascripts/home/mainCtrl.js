@@ -26,7 +26,7 @@ uplearnApp.controller('MainCtrl',[
 			$location.url("/home");
 		};
 
-		// $scope.upvoteButtonStatus = false;
+		$scope.upvoteButtonStatus = true;
 
 		$scope.upvoteLink = function(link) {
 			event.stopPropagation();

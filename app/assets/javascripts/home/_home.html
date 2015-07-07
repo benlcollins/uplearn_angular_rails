@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<h3>UpLearn is the best place to find and share online learning resources</h3>
+		<h1>UpLearn is the best place to find and share online learning resources</h1>
 		
 		<div ng-repeat="group in groupedLinks">
 			
@@ -17,6 +17,7 @@
 							on {{ link.created_at_formatted }}
 							<br>
 
+							<!-- Refactor this section of the code -->
 							<!-- Use a directive to handle this pluralized section -->
 							<span ng-show="link.comments.length > 1">
 								<a href="#/links/{{ link.id }}">{{ link.comments.length }} comments</a>
@@ -37,7 +38,7 @@
 							<div class="pull-right">
 								<button ng-click="upvoteLink(link)" class="btn btn-primary" type="button">
 									<!-- <span class="glyphicon glyphicon-thumbs-up"></span> -->
-									<span class="badge">  {{ link.upvotes }}</span>
+									<span class="badge">{{ link.upvotes }}</span>
 								</button>
 							</div>
 							
