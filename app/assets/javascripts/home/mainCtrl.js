@@ -25,9 +25,12 @@ uplearnApp.controller('MainCtrl',[
 			$location.url("/home");
 		};
 
+		// $scope.upvoteButtonStatus = false;
+
 		$scope.upvoteLink = function(link) {
 			event.stopPropagation();
-			links.upvote(link);
+			$scope.upvoteButtonStatus ? links.upvote(link) : links.downvote(link);
+			$scope.upvoteButtonStatus = !$scope.upvoteButtonStatus;
 		};
 
 		$scope.hiddenDiv = false;
@@ -35,6 +38,11 @@ uplearnApp.controller('MainCtrl',[
 		$scope.showLink = function(link){
 			event.stopPropagation();
 			$location.url("/links/" + link.id);
+		};
+
+		$scope.showDate = function(date){
+			d = Date.new(date);
+			return d.toDateString();
 		};
 
 	}

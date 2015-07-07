@@ -6,6 +6,12 @@ uplearnApp.factory('links',['$http',function($http){
 
 	o.getAll = function(){
 		return $http.get('/links.json').success(function(data){
+			// debugger;
+			for (var i = 0; i < data.length; i++){
+				var newDate = new Date(data[i].created_at);
+				data[i].created_at = newDate.toDateString();
+				// debugger;
+			};
 			angular.copy(data,o.links);
 		});
 	};
@@ -26,6 +32,12 @@ uplearnApp.factory('links',['$http',function($http){
 	o.upvote = function(link){
 		return $http.put('/links/' + link.id + '/upvote.json',link).success(function(data){
 			link.upvotes += 1;
+		});
+	};
+
+	o.downvote = function(link){
+		return $http.put('/links/' + link.id + '/downvote.json',link).success(function(data){
+			link.upvotes -= 1;
 		});
 	};
 

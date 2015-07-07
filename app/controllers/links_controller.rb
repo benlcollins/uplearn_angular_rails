@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
 
-	before_filter :authenticate_user!, only: [:create,:upvote]
+	before_filter :authenticate_user!, only: [:create,:upvote, :downvote]
 
 	def index
 		respond_with Link.all
@@ -25,6 +25,14 @@ class LinksController < ApplicationController
 		link.save
 		respond_with link
 	end
+
+	def downvote
+		link = Link.find(params[:id])
+		# binding.pry
+		link.upvotes -= 1
+		link.save
+		respond_with link
+	end		
 
 	private
 

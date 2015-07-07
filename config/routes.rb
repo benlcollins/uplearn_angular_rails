@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   	member do
   		put '/upvote' => 'links#upvote'
+      put '/downvote' => 'links#downvote'
   	end
   end
 

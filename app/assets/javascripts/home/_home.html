@@ -3,7 +3,7 @@
 		<h3>UpLearn is the best place to find and share online learning resources</h3>
 		<br>
 		
-		<div ng-repeat="link in links | orderBy: '-upvotes'">
+		<div ng-repeat="link in links | orderBy: '-created_at'">
 
 			<!-- content inside ng-repeat loop -->
 			<span ng-click="hiddenDiv = !hiddenDiv" style="cursor: pointer">
@@ -11,6 +11,11 @@
 					<div class="panel-body">
 					
 						<h4>{{ link.title }}</h4>
+						Shared by <a ng-ref="#/users/{{ link.user.username }}">{{ link.user.username }}</a> 
+							on {{ link.created_at }}
+						<br>
+
+						<!-- Use a directive to handle this pluralized section -->
 						<span ng-show="link.comments.length > 1">
 							<a href="#/links/{{ link.id }}">{{ link.comments.length }} comments</a>
 						</span>
