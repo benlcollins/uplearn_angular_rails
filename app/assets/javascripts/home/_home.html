@@ -1,46 +1,48 @@
 <div class="container">
 	<div class="row">
 		<h3>UpLearn is the best place to find and share online learning resources</h3>
-		<br>
 		
-		<div ng-repeat="link in links | orderBy: '-created_at'">
+		<div ng-repeat="group in groupedLinks">
+			
+			<h3 ng-if="$first">Latest</h3>
+			<h3 ng-if="!$first">{{ group[0].created_at_formatted }}</h3>
 
-			<!-- content inside ng-repeat loop -->
-			<span ng-click="hiddenDiv = !hiddenDiv" style="cursor: pointer">
-				<div class="panel panel-default">
-					<div class="panel-body">
-					
-						<h4>{{ link.title }}</h4>
-						Shared by <a ng-ref="#/users/{{ link.user.username }}">{{ link.user.username }}</a> 
-							on {{ link.created_at }}
-						<br>
+			<div ng-repeat="link in group | orderBy: '-created_at'">
+				<!-- content inside ng-repeat loop -->
+				<span ng-click="hiddenDiv = !hiddenDiv" style="cursor: pointer">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<h5>{{ link.title }}</h5>
+							Shared by <a ng-ref="#/users/{{ link.user.username }}">{{ link.user.username }}</a> 
+							on {{ link.created_at_formatted }}
+							<br>
 
-						<!-- Use a directive to handle this pluralized section -->
-						<span ng-show="link.comments.length > 1">
-							<a href="#/links/{{ link.id }}">{{ link.comments.length }} comments</a>
-						</span>
-						<span ng-show="link.comments.length == 1">
-							<a href="#/links/{{ link.id }}">{{ link.comments.length }} comment</a>
-						</span>
-						<span ng-show="link.comments.length == 0">
-							<a href="#/links/{{ link.id }}">No comments</a>
-						</span>
-						<br>
-						<a href="{{ link.url }}" target="_blank">
-							<!-- <span class="glyphicon glyphicon-link"></span> -->
-							{{ link.url }}
-						</a>
+							<!-- Use a directive to handle this pluralized section -->
+							<span ng-show="link.comments.length > 1">
+								<a href="#/links/{{ link.id }}">{{ link.comments.length }} comments</a>
+							</span>
+							<span ng-show="link.comments.length == 1">
+								<a href="#/links/{{ link.id }}">{{ link.comments.length }} comment</a>
+							</span>
+							<span ng-show="link.comments.length == 0">
+								<a href="#/links/{{ link.id }}">No comments</a>
+							</span>
+							<br>
+							<a href="{{ link.url }}" target="_blank">
+								<!-- <span class="glyphicon glyphicon-link"></span> -->
+								{{ link.url }}
+							</a>
 
-						<!-- Upvote button -->
-						<div class="pull-right">
-							<button ng-click="upvoteLink(link)" class="btn btn-primary" type="button">
-								<!-- <span class="glyphicon glyphicon-thumbs-up"></span> -->
-								<span class="badge">  {{ link.upvotes }}</span>
-							</button>
-						</div>
-						
-						<!-- section for link details -->
-						<div ng-show="hiddenDiv">
+							<!-- Upvote button -->
+							<div class="pull-right">
+								<button ng-click="upvoteLink(link)" class="btn btn-primary" type="button">
+									<!-- <span class="glyphicon glyphicon-thumbs-up"></span> -->
+									<span class="badge">  {{ link.upvotes }}</span>
+								</button>
+							</div>
+							
+							<!-- section for link details -->
+							<div ng-show="hiddenDiv">
 								<div class="jumbotron" ng-click="showLink(link)">
 									<!-- <a href="#/links/{{$index}}">details</a> -->
 									<h2><!-- <span class="glyphicon glyphicon-bookmark"></span> --> {{ link.title }}</h2>
@@ -55,12 +57,10 @@
 									</p>
 								</div>
 							</div>
-
+						</div>
 					</div>
-				</div>
-			</span>
-		
+				</span>
+			</div>
 		</div>
-	
 	</div>
 </div>

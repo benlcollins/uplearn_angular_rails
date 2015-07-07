@@ -8,6 +8,7 @@ uplearnApp.controller('MainCtrl',[
 		window.myscope = $scope;
 		
 		$scope.links = links.links;
+		$scope.groupedLinks = links.groupedLinks;
 
 		$scope.addLink = function() {
 			if ($scope.title==="" || !$scope.title || $scope.url==="" || !$scope.url) { return; }
