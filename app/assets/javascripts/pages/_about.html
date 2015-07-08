@@ -1,6 +1,19 @@
 <div class="container">
 	<div class="row">
 		<h1>About UpLearn</h1>
-		<p>This is the about page!</p>
+		<br>
+
+		<div class="col-md-10">
+
+			<p>The original <a href="https://uplearn.herokuapp.com/" target="_blank">UpLearn application</a> was a pure Rails app that I built earlier this year. I'm rebuilding that app here, using AngularJS on the front-end and a Rails API as the back-end.</p>
+		
+			<p>Early days so not at feature parity yet. As I build the app, I'm keeping track of the known bugs and quirks. For reference, here they are:</p>
+			<ul class="list-group">
+				<li class="list-group-item">Search results on home page always has title "Latest" becuase of the $first variable with ng-repeat</li>
+				<li class="list-group-item">Cannot get bootstrap glyphicons to play ball with the Rails asset pipeline</li>
+				<li class="list-group-item">Upvote/downvote buttons not fully functional - need to tie to a user in database</li>
+				<li class="list-group-item">Highlighted active link in menu is not dynamic, so always highlights "Home" link</li>
+			</ul>
+		</div>
 	</div>
 </div>

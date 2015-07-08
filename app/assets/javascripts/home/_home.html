@@ -1,13 +1,30 @@
 <div class="container">
 	<div class="row">
 		<h1>UpLearn is the best place to find and share online learning resources</h1>
-		
-		<div ng-repeat="group in groupedLinks">
+	</div>
+
+	<!-- search bar -->
+	<div class="row">
+		<div class="col-md-6 col-md-offset-2">
+			<input type="search" ng-model="search" placeholder="Search links" class="form-control" aria-label="Search" />
+		</div>
+	</div>
+	<br>
+
+	<!-- Message to display if no search results returned -->
+	<h3 ng-if="filteredLinks.length === 0">No results found for {{ search }}</h3>
+	
+	<div class="row">
+		<!-- ng-repeat outer loop for grouped dates -->
+		<div ng-repeat="group in filteredLinks = (groupedLinks | filter:search)">
 			
+			<!-- display group date as header, with 'Latest' for first group -->
 			<h3 ng-if="$first">Latest</h3>
 			<h3 ng-if="!$first">{{ group[0].created_at_formatted }}</h3>
 
-			<div ng-repeat="link in group | orderBy: '-created_at'">
+			<!-- ng-repeat inner loop for individual links within groups -->
+			<div ng-repeat="link in group | filter:search | orderBy: '-created_at'">
+				
 				<!-- content inside ng-repeat loop -->
 				<span ng-click="hiddenDiv = !hiddenDiv" style="cursor: pointer">
 					<div class="panel panel-default">
@@ -42,7 +59,7 @@
 								</button>
 							</div>
 							
-							<!-- section for link details -->
+							<!-- section for link details in jumbotron pane -->
 							<div ng-show="hiddenDiv">
 								<div class="jumbotron" ng-click="showLink(link)">
 									<!-- <a href="#/links/{{$index}}">details</a> -->
