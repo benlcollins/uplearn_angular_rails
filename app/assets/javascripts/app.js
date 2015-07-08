@@ -34,12 +34,12 @@ uplearnApp.config([
 			.state('profile',{
 				url: '/profile/{id}',
 				templateUrl: 'auth/_profile.html',
-				controller: 'NavCtrl'
-				// resolve: {
-				// 	linkPromise: ['links',function(links){
-				// 		return links.getAll();
-				// 	}]
-				// }
+				controller: 'MainCtrl',
+				resolve: {
+					postPromise: ['links',function(links){
+						return links.getAll();
+					}]
+				}
 			})
 			.state('about',{
 				url: '/about',

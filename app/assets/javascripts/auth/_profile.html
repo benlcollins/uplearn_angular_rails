@@ -1,15 +1,22 @@
 <div class="container">
 	<div class="row">
-		<h1>{{ user.username }}</h1>
+		
+		<div ng-controller="NavCtrl">
+			<h1>User: {{ user.username }}</h1>
 
-		<p>Links submitted by {{ user.username }}:</p>
+			<p>{{ user.username }} has submitted the following resources:</p>
 
-		<!-- <div ng-repeat="link in links">
-			<ul>
-				<li ng-if="link.user.username === user.username">{{ link.title }}</li>
-			</ul>
-		</div> -->
+			<div ng-repeat="link in links">
+				<ul>
+					<li ng-if="link.user.username === user.username">
+						<a href="#/links/{{ link.id }}">
+							{{ link.title }}
+						</a>
+					</li>
+				</ul>
+			</div>
 
+		</div>
 
 	</div>
 </div>

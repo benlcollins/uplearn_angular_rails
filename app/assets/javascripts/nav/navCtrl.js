@@ -1,11 +1,10 @@
 uplearnApp.controller('NavCtrl',[
 	'$scope',
 	'Auth',
-	'links',
-	function($scope,Auth,links){
+	'$state',
+	function($scope,Auth,$state){
 
 		window.navscope = $scope;
-		// $scope.links = links.links;
 
 		$scope.signedIn = Auth.isAuthenticated;
 		$scope.logout = Auth.logout;
@@ -24,6 +23,7 @@ uplearnApp.controller('NavCtrl',[
 
 		$scope.$on('devise:logout', function(e, user){
 			$scope.user = {};
+			$state.go('home');
 		});
 
 
