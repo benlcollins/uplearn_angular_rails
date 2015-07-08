@@ -30,9 +30,20 @@
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<h5>{{ link.title }}</h5>
-							Shared by <a ng-ref="#/users/{{ link.user.username }}">{{ link.user.username }}</a> 
+
+							<!-- Refactor this $$state.value section of the code -->
+							<!-- <span ng-if="loggedInUser.$$state.value.username === link.user.username">
+								<a href="#/profile/{{ loggedInUser.$$state.value.id }}">{{ loggedInUser.$$state.value.username }}</a>
+							</span> -->
+							Shared by 
+							{{ link.user.username }} 
 							at {{ link.time_submitted }}
 							<br>
+
+							<!-- testing out this code -->
+							<!-- <p>{{ loggedInUser }}</p> -->
+							<!-- <span ng-controller="NavCtrl">{{ user.username }}</span> -->
+							<!-- <br> -->
 
 							<!-- Refactor this section of the code -->
 							<!-- Use a directive to handle this pluralized section -->

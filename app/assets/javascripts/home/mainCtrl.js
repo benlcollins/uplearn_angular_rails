@@ -3,7 +3,8 @@ uplearnApp.controller('MainCtrl',[
 	'links',
 	'$location',
 	'$state',
-	function($scope, links, $location,$state){	
+	'AuthService',
+	function($scope, links, $location,$state,AuthService){	
 		
 		window.myscope = $scope;
 		
@@ -45,6 +46,8 @@ uplearnApp.controller('MainCtrl',[
 			d = Date.new(date);
 			return d.toDateString();
 		};
+
+		$scope.loggedInUser = AuthService.currentUser();
 
 	}
 ]);

@@ -10,48 +10,50 @@
 
 <body ng-app="uplearn">
 
-	<div class="container">
-		<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#home">UpLearn</a>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li class="active">
-						<a href="#home">Home</a>
+<nav class="navbar navbar-default navbar-fixed-top">
+	<!-- <div class="container"> -->
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#home">UpLearn</a>
+		</div>
+		<!-- <div class="navbar-collapse collapse"> -->
+			<ul class="nav navbar-nav">
+				<li class="active">
+					<a href="#home">Home</a>
+				</li>
+				<li>
+					<a href="#about">About</a>
+				</li>
+				<li>
+					<a href="#contact">Contact</a>
+				</li>
+				<!-- <li>
+					<a href="#jobs">Jobs</a>
+				</li> -->
+			</ul>
+			<div ng-controller="NavCtrl">
+				<ul class="nav navbar-nav pull-right">
+					<li ng-hide="signedIn()">
+						<a href="#/login">Log in</a>
+					</li>
+					<li ng-hide="signedIn()">
+						<a href="#/register">Register</a>
+					</li>
+					<li ng-show="signedIn()">
+						<a href="#/profile/{{ user.id }}">{{ user.username }}</a>
+					</li>
+					<li ng-show="signedIn()">
+						<a ng-click="logout()" style="cursor: pointer;">Log out</a>
 					</li>
 					<li>
-						<a href="#about">About</a>
+						<a href="#addlink">Submit Link</a>
 					</li>
-					<li>
-						<a href="#contact">Contact</a>
-					</li>
-					<!-- <li>
-						<a href="#jobs">Jobs</a>
-					</li> -->
 				</ul>
-				<div ng-controller="NavCtrl">
-					<ul class="nav navbar-nav pull-right">
-						<li ng-hide="signedIn()">
-							<a href="#/login">Log in</a>
-						</li>
-						<li ng-hide="signedIn()">
-							<a href="#/register">Register</a>
-						</li>
-						<li ng-show="signedIn()">
-							<a href="#home">{{ user.username }}</a>
-						</li>
-						<li ng-show="signedIn()">
-							<a ng-click="logout()" style="cursor: pointer;">Log out</a>
-						</li>
-						<li>
-							<a href="#addlink">Submit Link</a>
-						</li>
-					</ul>
-				</div>
 			</div>
-		</nav>
-	</div>
+			<!-- </div> -->
+	<!-- </div> -->
+</nav>
+
+
 
 
   <div ui-view></div>

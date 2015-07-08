@@ -5,7 +5,6 @@ uplearnApp.controller('PagesCtrl',[
 	'$http',
 	function($scope,links,$stateParams,$http){
 		window.myscope = $scope;
-		// $scope.link = linkPromise.data;
 
 		// $scope.addComment = function(){
 		// 	if ($scope.body === "" || !$scope.body){ return; }

@@ -31,6 +31,16 @@ uplearnApp.config([
 				templateUrl: 'home/_addlink.html',
 				controller: 'MainCtrl'
 			})
+			.state('profile',{
+				url: '/profile/{id}',
+				templateUrl: 'auth/_profile.html',
+				controller: 'NavCtrl'
+				// resolve: {
+				// 	linkPromise: ['links',function(links){
+				// 		return links.getAll();
+				// 	}]
+				// }
+			})
 			.state('about',{
 				url: '/about',
 				templateUrl: 'pages/_about.html',
@@ -70,3 +80,37 @@ uplearnApp.config([
 		$urlRouterProvider.otherwise('home');
 
 }]);
+
+
+uplearnApp.factory('AuthService',
+	function(){
+		var currentUser;
+
+		return {
+			currentUser: function(){ 
+				return "Auth Service is working!";
+			}
+		}
+	}
+);
+
+// this factory does not work, because injecting 'Auth' here creates a circular reference I believe
+// uplearnApp.factory('AuthService',[
+// 	'Auth',
+// 	function(Auth){
+// 		var currentUser;
+
+// 		return {
+// 			currentUser: function(){ 
+// 				return "Auth Service is working!";
+// 				// return Auth.currentUser().then(function(user){
+// 				// 	return user;
+// 				// }); 
+// 			}
+// 		}
+// 	}
+// ]);
+
+
+
+

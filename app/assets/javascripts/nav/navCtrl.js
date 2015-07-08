@@ -1,7 +1,11 @@
 uplearnApp.controller('NavCtrl',[
 	'$scope',
 	'Auth',
-	function($scope,Auth){
+	'links',
+	function($scope,Auth,links){
+
+		window.navscope = $scope;
+		// $scope.links = links.links;
 
 		$scope.signedIn = Auth.isAuthenticated;
 		$scope.logout = Auth.logout;

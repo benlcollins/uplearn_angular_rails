@@ -4,6 +4,8 @@ uplearnApp.controller('AuthCtrl',[
 	'Auth',
 	function($scope,$state,Auth){
 
+		window.myscope = $scope;
+
 		$scope.login = function(){
 			Auth.login($scope.user).then(function(){
 				$state.go('home');
