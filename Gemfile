@@ -12,6 +12,12 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'rspec-rails', '~> 3.3.2'
+end
+
+group :test do
+	gem 'database_cleaner'
+	gem 'factory_girl_rails'
 end
 
 gem 'angular-rails-templates'
