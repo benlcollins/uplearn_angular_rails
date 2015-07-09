@@ -15,7 +15,8 @@ uplearnApp.factory('links',['$http',function($http){
 				
 				// create a formatted version of date for display
 				data[i].created_at_formatted = new Date(data[i].created_at).toDateString();
-				data[i].time_submitted = new Date(data[i].created_at).toLocaleTimeString();
+				data[i].time_submitted = new Date(data[i].created_at)
+					.toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
 
 				// create array of all link dates for grouping
 				dates.push(data[i].created_at.slice(0,10));
