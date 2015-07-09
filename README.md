@@ -1,4 +1,4 @@
-# uplearn_angular_rails
+# uplearn-js
 
 View this app at: https://uplearn-js.herokuapp.com/
 

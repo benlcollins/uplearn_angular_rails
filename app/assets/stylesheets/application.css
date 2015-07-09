@@ -25,6 +25,12 @@ body {
 .list-group-item-custom {
 	border: 0px;
 }
+.panel-body {
+	padding: 3px 10px 3px 10px;
+}
+
+
+
 .group-date-headings {
 	color: #998E8E;
 	letter-spacing: 0.1em;
@@ -32,6 +38,14 @@ body {
 .add-link-style {
 	margin: 8px 15px 0 0;
 }
+.margin-special {
+	margin-top: 7px !important;
+	margin-bottom: 5px !important;
+}
+.margin-12px {
+	margin: 12px !important;
+}
+
 
 
 
