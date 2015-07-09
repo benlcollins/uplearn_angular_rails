@@ -12,18 +12,18 @@
 	<br>
 
 	<!-- Message to display if no search results returned -->
-	<h3 ng-if="filteredLinks.length === 0">No results found for {{ search }}</h3>
+	<h3 ng-if="filteredLinks.length === 0" class="animate-if">No results found for {{ search }}</h3>
 	
 	<div class="row">
 		<!-- ng-repeat outer loop for grouped dates -->
-		<div ng-repeat="group in filteredLinks = (groupedLinks | filter:search)">
+		<div ng-repeat="group in filteredLinks = (groupedLinks | filter:search)" class="link-item">
 			
 			<!-- display group date as header, with 'Latest' for first group -->
 			<h3 ng-if="$first">Latest</h3>
 			<h3 ng-if="!$first">{{ group[0].created_at_formatted }}</h3>
 
 			<!-- ng-repeat inner loop for individual links within groups -->
-			<div ng-repeat="link in group | filter:search | orderBy: '-created_at'">
+			<div ng-repeat="link in group | filter:search | orderBy: '-created_at'" class="link-item">
 				
 				<!-- content inside ng-repeat loop -->
 				<span ng-click="hiddenDiv = !hiddenDiv" style="cursor: pointer">
