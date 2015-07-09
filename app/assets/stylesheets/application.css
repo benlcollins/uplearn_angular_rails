@@ -25,6 +25,14 @@ body {
 .list-group-item-custom {
 	border: 0px;
 }
+.group-date-headings {
+	color: #998E8E;
+	letter-spacing: 0.1em;
+}
+.add-link-style {
+	margin: 8px 15px 0 0;
+}
+
 
 
 /*ngAnimate classes*/

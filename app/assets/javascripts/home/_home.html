@@ -1,11 +1,11 @@
 <div class="container">
 	<div class="row">
-		<h1>UpLearn is the best place to find and share online learning resources</h1>
+		<h3 class="text-center">UpLearn is the best place to find and share online learning resources</h3>
 	</div>
 
 	<!-- search bar -->
 	<div class="row">
-		<div class="col-md-6 col-md-offset-2">
+		<div class="col-md-6 col-md-offset-3">
 			<input type="search" ng-model="search" placeholder="Search links" class="form-control" aria-label="Search" />
 		</div>
 	</div>
@@ -19,8 +19,8 @@
 		<div ng-repeat="group in filteredLinks = (groupedLinks | filter:search)" class="link-item">
 			
 			<!-- display group date as header, with 'Latest' for first group -->
-			<h3 ng-if="$first">Latest</h3>
-			<h3 ng-if="!$first">{{ group[0].created_at_formatted }}</h3>
+			<h5 ng-if="$first" class="group-date-headings">Latest</h5>
+			<h5 ng-if="!$first" class="group-date-headings">{{ group[0].created_at_formatted }}</h5>
 
 			<!-- ng-repeat inner loop for individual links within groups -->
 			<div ng-repeat="link in group | filter:search | orderBy: '-created_at'" class="link-item">
@@ -29,7 +29,7 @@
 				<span ng-click="hiddenDiv = !hiddenDiv" style="cursor: pointer">
 					<div class="panel panel-default">
 						<div class="panel-body">
-							<h5>{{ link.title }}</h5>
+							<h4>{{ link.title }}</h4>
 
 							<!-- Refactor this $$state.value section of the code -->
 							<!-- <span ng-if="loggedInUser.$$state.value.username === link.user.username">

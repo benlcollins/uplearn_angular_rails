@@ -2,7 +2,8 @@ uplearnApp.controller('NavCtrl',[
 	'$scope',
 	'Auth',
 	'$state',
-	function($scope,Auth,$state){
+	'$location',
+	function($scope,Auth,$state,$location){
 
 		window.navscope = $scope;
 
@@ -25,6 +26,11 @@ uplearnApp.controller('NavCtrl',[
 			$scope.user = {};
 			$state.go('home');
 		});
+
+		$scope.addNewLink = function() {
+			// debugger;
+			$state.go('addlink');
+		};
 
 
 	}
