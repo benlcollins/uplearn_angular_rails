@@ -7,7 +7,7 @@ class LinksController < ApplicationController
 	end
 	
 	def create
-		link = Link.create(post_params.merge(user_id: current_user.id))
+		link = Link.new(post_params.merge(user_id: current_user.id))
 		link.upvotes = 0
 		link.save
 		respond_with link

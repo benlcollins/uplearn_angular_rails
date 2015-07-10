@@ -2,7 +2,7 @@
 <html>
 
 <head lang="en">
-  <title>TestLearnApp</title>
+  <title>UpLearn - JS version</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -45,7 +45,8 @@
 						<a ng-click="logout()" style="cursor: pointer;">Log out</a>
 					</li>
 					<li>
-						<a href="#addlink">Submit Link</a>
+						<!-- <a href="#addlink">Submit Link</a> -->
+						<button type="button" ng-click="addNewLink()" class="btn btn-success add-link-style">Submit Link</button>
 					</li>
 				</ul>
 			</div>

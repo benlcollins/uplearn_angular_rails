@@ -25,3 +25,53 @@ body {
 .list-group-item-custom {
 	border: 0px;
 }
+.panel-body {
+	padding: 3px 10px 3px 10px;
+}
+
+
+
+.group-date-headings {
+	color: #998E8E;
+	letter-spacing: 0.1em;
+}
+.add-link-style {
+	margin: 8px 15px 0 0;
+}
+.margin-special {
+	margin-top: 7px !important;
+	margin-bottom: 5px !important;
+}
+.margin-12px {
+	margin: 12px !important;
+}
+
+
+
+
+/*ngAnimate classes*/
+.animate-if.ng-enter,
+.animate-if.ng-leave,
+.link-item.ng-move,
+.link-item.ng-enter,
+.link-item.ng-leave {
+	-webkit-transition: all ease-in-out 0.7s;
+	transition: all ease-in-out 0.7s;
+}
+.animate-if.ng-enter,
+.animate-if.ng-leave.ng-leave-active,
+.link-item.ng-move,
+.link-item.ng-enter,
+.link-item.ng-leave.ng-leave-active {
+	opacity: 0;
+	max-height: 0;
+}
+.animate-if.ng-enter.ng-enter-active,
+.animate-if.ng-leave,
+.link-item.ng-move.ng-move-active,
+.link-item.ng-enter.ng-enter-active,
+.link-item.ng-leave {
+	opacity: 1;
+	max-height: 40px;
+}
+

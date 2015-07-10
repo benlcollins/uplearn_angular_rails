@@ -64,3 +64,4 @@ ActiveRecord::Schema.define(version: 20150701175815) do
   add_foreign_key "comments", "users"
   add_foreign_key "links", "users"
 end
+

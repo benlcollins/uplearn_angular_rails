@@ -1,4 +1,4 @@
-var uplearnApp = angular.module('uplearn',['ui.router','templates','Devise']);
+var uplearnApp = angular.module('uplearn',['ui.router','templates','Devise','ngAnimate']);
 
 uplearnApp.config([
 	'$stateProvider',

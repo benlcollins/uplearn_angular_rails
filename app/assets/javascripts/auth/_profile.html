@@ -6,12 +6,12 @@
 
 			<p>{{ user.username }} has submitted the following resources:</p>
 
-			<div ng-repeat="link in links">
+			<div ng-repeat="link in links | orderBy: '-created_at'">
 				<ul>
 					<li ng-if="link.user.username === user.username">
 						<a href="#/links/{{ link.id }}">
 							{{ link.title }}
-						</a>
+						</a> on {{ link.created_at_formatted }}
 					</li>
 				</ul>
 			</div>
