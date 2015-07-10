@@ -20,7 +20,7 @@
 			
 			<!-- display group date as header, with 'Latest' for first group -->
 			<h5 ng-if="$first" class="group-date-headings">Latest links</h5>
-			<h5 ng-if="!$first" class="group-date-headings">Links shared on {{ group[0].created_at_formatted }}</h5>
+			<h5 ng-if="!$first" class="group-date-headings">Shared on {{ group[0].created_at_formatted }}</h5>
 
 			<!-- ng-repeat inner loop for individual links within groups -->
 			<div ng-repeat="link in group | filter:search | orderBy: '-created_at'" class="link-item">
