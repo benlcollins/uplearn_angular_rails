@@ -38,6 +38,9 @@
 					<li ng-hide="signedIn()" ng-class="{ active: isActive('/register')}">
 						<a href="#/register">Register</a>
 					</li>
+					<li ng-show="signedIn()">
+						<img src="http://www.gravatar.com/avatar/{{ hash }}"  class="navbar-gravatar"/>
+					</li>
 					<li ng-show="signedIn()" ng-class="{ active: isActive('/profile')}">
 						<a href="#/profile/{{ user.id }}">{{ user.username }}</a>
 					</li>

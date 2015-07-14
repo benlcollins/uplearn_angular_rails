@@ -82,6 +82,7 @@ uplearnApp.config([
 }]);
 
 
+
 uplearnApp.factory('AuthService',
 	function(){
 		var currentUser;

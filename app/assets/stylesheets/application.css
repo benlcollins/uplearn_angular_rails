@@ -86,3 +86,12 @@
 	max-height: 40px;
 }
 
+
+/* Avatar styling */
+.navbar-gravatar {
+	border-radius: 50%;
+	width: 32px;
+	height: 32px;
+	margin: 8px 0 8px 0;
+}
+

@@ -11,12 +11,6 @@ class ApplicationController < ActionController::Base
   # 	render 'layouts/application'
   # end
 
-  # grab the current_user's gravatar
-  def current_user_gravatar
-    hash = Digest::MD5.hexdigest(current_user.email)
-    @image_src = "http://www.gravatar.com/avatar/#{hash}"
-  end
-
   private
 
   	def configure_permitted_parameters

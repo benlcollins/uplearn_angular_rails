@@ -73,18 +73,21 @@ uplearnApp.factory('links',['$http',function($http){
 		});
 	};
 
+	// functions to handle upvote button
 	o.upvote = function(link){
 		return $http.put('/links/' + link.id + '/upvote.json',link).success(function(data){
 			link.upvotes += 1;
 		});
 	};
 
+	// functions to handle downvoting
 	o.downvote = function(link){
 		return $http.put('/links/' + link.id + '/downvote.json',link).success(function(data){
 			link.upvotes -= 1;
 		});
 	};
 
+	// add comments
 	o.addComment = function(id,comment){
 		return $http.post('/links/' + id + '/comments.json', comment);
 	};

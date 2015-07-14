@@ -35,18 +35,22 @@ uplearnApp.controller('MainCtrl',[
 			$scope.upvoteButtonStatus = !$scope.upvoteButtonStatus;
 		};
 
-		$scope.hiddenDiv = false;
-
 		$scope.showLink = function(link){
 			event.stopPropagation();
 			$location.url("/links/" + link.id);
 		};
 
+		// format date
 		$scope.showDate = function(date){
 			d = Date.new(date);
 			return d.toDateString();
 		};
 
+
+
+		// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+		// the following not used at present, some workings to filter links by user
+		// the following calls the AuthService I created to get current user (but that is not working yet)
 		$scope.loggedInUser = AuthService.currentUser();
 
 		// filter method to get user 1 links only
@@ -60,6 +64,7 @@ uplearnApp.controller('MainCtrl',[
 			return obj.user.id == 2;
 		};
 		user_links2 = $scope.links.filter(linksUser2);
+		// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 	}
