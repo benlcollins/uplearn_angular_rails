@@ -15,8 +15,20 @@
  *= require_self
  */
 
-body { 
+/* Body padding settings for navbar-fixed-top, no longer required with navbar-static-top */
+/*body { 
  	padding-top: 50px; 
+}
+@media only screen and (min-width: 0px) and (max-width: 768px) {
+	body {
+		padding-top: 350px;
+	}
+}*/
+
+/*Overides to bootstrap styles*/
+.navbar-static-top {
+	padding-left: 25px;
+	padding-right: 25px;
 }
 .jumbotron {
 	margin-top: 30px;
@@ -30,13 +42,13 @@ body {
 }
 
 
-
+/*Custom styles*/
 .group-date-headings {
 	color: #998E8E;
 	letter-spacing: 0.1em;
 }
-.add-link-style {
-	margin: 8px 15px 0 0;
+.add-margin-right {
+	margin-right: 15px;
 }
 .margin-special {
 	margin-top: 7px !important;
@@ -45,7 +57,6 @@ body {
 .margin-12px {
 	margin: 12px !important;
 }
-
 
 
 

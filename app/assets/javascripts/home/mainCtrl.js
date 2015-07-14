@@ -49,5 +49,18 @@ uplearnApp.controller('MainCtrl',[
 
 		$scope.loggedInUser = AuthService.currentUser();
 
+		// filter method to get user 1 links only
+		var linksUser1 = function(obj){
+			return obj.user.id == 1;
+		};
+		user_links1 = $scope.links.filter(linksUser1);
+
+		// filter method to get user 2 links only
+		var linksUser2 = function(obj){
+			return obj.user.id == 2;
+		};
+		user_links2 = $scope.links.filter(linksUser2);
+
+
 	}
 ]);

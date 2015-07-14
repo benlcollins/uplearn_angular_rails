@@ -15,6 +15,7 @@
     "bootstrap": "~3.3.5",
     "angular-devise": "~1.1.0",
     "angular-animate": "~1.4.2",
-    "angular-mocks": "v1.4.2"
+    "angular-mocks": "v1.4.2",
+    "d3": "~3.5.6"
   }
 }

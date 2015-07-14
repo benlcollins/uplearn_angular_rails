@@ -10,51 +10,49 @@
 
 <body ng-app="uplearn">
 
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-static-top">
 	<!-- <div class="container"> -->
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#home">UpLearn</a>
 		</div>
 		<!-- <div class="navbar-collapse collapse"> -->
-			<ul class="nav navbar-nav">
-				<li class="active">
-					<a href="#home">Home</a>
-				</li>
-				<li>
-					<a href="#about">About</a>
-				</li>
-				<li>
-					<a href="#contact">Contact</a>
-				</li>
-				<!-- <li>
-					<a href="#jobs">Jobs</a>
-				</li> -->
-			</ul>
 			<div ng-controller="NavCtrl">
-				<ul class="nav navbar-nav pull-right">
-					<li ng-hide="signedIn()">
+				<ul class="nav navbar-nav">
+					<li ng-class="{ active: isActive('/home')}">
+						<a href="#home">Home</a>
+					</li>
+					<li ng-class="{ active: isActive('/about')}">
+						<a href="#about">About</a>
+					</li>
+					<li ng-class="{ active: isActive('/contact')}">
+						<a href="#contact">Contact</a>
+					</li>
+					<!-- <li>
+						<a href="#jobs">Jobs</a>
+					</li> -->
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li ng-hide="signedIn()" ng-class="{ active: isActive('/login')}">
 						<a href="#/login">Log in</a>
 					</li>
-					<li ng-hide="signedIn()">
+					<li ng-hide="signedIn()" ng-class="{ active: isActive('/register')}">
 						<a href="#/register">Register</a>
 					</li>
-					<li ng-show="signedIn()">
+					<li ng-show="signedIn()" ng-class="{ active: isActive('/profile')}">
 						<a href="#/profile/{{ user.id }}">{{ user.username }}</a>
 					</li>
 					<li ng-show="signedIn()">
 						<a ng-click="logout()" style="cursor: pointer;">Log out</a>
 					</li>
-					<li>
+					<li class="">
 						<!-- <a href="#addlink">Submit Link</a> -->
-						<button type="button" ng-click="addNewLink()" class="btn btn-success add-link-style">Submit Link</button>
+						<button type="button" ng-click="addNewLink()" class="btn btn-success navbar-btn">Submit Link</button>
 					</li>
 				</ul>
 			</div>
 			<!-- </div> -->
 	<!-- </div> -->
 </nav>
-
-
 
 
   <div ui-view></div>

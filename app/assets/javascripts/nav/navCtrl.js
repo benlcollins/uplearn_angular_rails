@@ -6,6 +6,7 @@ uplearnApp.controller('NavCtrl',[
 	function($scope,Auth,$state,$location){
 
 		window.navscope = $scope;
+		window.navLocation = $location;
 
 		$scope.signedIn = Auth.isAuthenticated;
 		$scope.logout = Auth.logout;
@@ -27,11 +28,15 @@ uplearnApp.controller('NavCtrl',[
 			$state.go('home');
 		});
 
+		// function for adding new link
 		$scope.addNewLink = function() {
-			// debugger;
 			$state.go('addlink');
 		};
 
+		// function to toggle active class on nav li's
+		$scope.isActive = function(viewLocation) {
+			return $location.path().indexOf(viewLocation) == 0;
+		};
 
 	}
 ]);
